@@ -15,9 +15,10 @@
                         <div class="card-body">
                             <form action="/peminjam" method="post">
                                 @csrf
-                                <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama Peminjam</label>
-                                    <input type="text" class="form-control" name="nama" id="nama">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Pegawai</label>
+                                    <select id="selectpegawai" name="pegawai_id" class="form-control" style="width: 100%;">
+                                    </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>

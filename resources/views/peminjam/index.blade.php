@@ -31,9 +31,9 @@
                                       <!--  <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Barang</h6>
                                         </th>-->
-                                        <th class="border-bottom-0">
+                                       <!-- <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Jumlah</h6>
-                                        </th>
+                                        </th>-->
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">No. Hp</h6>
                                         </th>
@@ -62,9 +62,7 @@
                                     @foreach ($peminjam as $pjm)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $pjm->nama }}</td>
-                                            
-                                            <td>{{ $pjm->jumlah }}</td>
+                                            <td>{{ $pjm->pegawai->nama}}</td>
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td>
                                             <td>{{ $pjm->tgl_kmb }}</td>

@@ -46,7 +46,7 @@ class PeminjamController extends Controller
         $barangSisa = $data-$dipinjam;
 
         $validatedData = $request->validate([
-            'nama' => 'required',
+            'pegawai_id' => 'required',
             'no_hp'  => 'required',
             'tgl_pjm'  => 'required',
             'status' => 'required'

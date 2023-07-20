@@ -55,6 +55,14 @@
                                 <span class="hide-menu">Barang</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/pegawai" aria-expanded="false">
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <span class="hide-menu">Data Pegawai</span>
+                            </a>
+                        </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Peminjaman & Pengembalian</span>
@@ -214,6 +222,8 @@ $(function() {
       });
 });
 
+
+
 $(function () {
     $('.selectbarang').select2({
         placeholder: 'Select Barang',
@@ -226,6 +236,28 @@ $(function () {
                       results: $.map(data, function (item) {
                           return {
                               text: item.kode_brg,
+                              id: item.id
+                          }
+                      })
+                  };
+              },
+              cache: true
+          }
+      });
+});
+
+$(function () {
+    $('#selectpegawai').select2({
+        placeholder: 'Select Pegawai',
+          ajax: {
+              url: '/getpegawai',
+              dataType: 'json',
+              delay: 250,
+              processResults: function (data) {
+                  return {
+                      results: $.map(data, function (item) {
+                          return {
+                              text: item.nama,
                               id: item.id
                           }
                       })

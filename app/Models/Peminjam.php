@@ -14,4 +14,8 @@ class Peminjam extends Model
     {
         return $this->belongsTo(Barang::class);
     }
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class);
+    }
 }

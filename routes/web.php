@@ -9,6 +9,7 @@ use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PegawaiController;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Request;
 
@@ -39,6 +40,9 @@ Route::post('pengembalian/update', [PengembalianController::class, 'update'])->n
 Route::resource('pengadaan', PengadaanController::class);
 Route::get('stok',[BarangController::class, 'stok']);
 
+Route::resource('pegawai', PegawaiController::class);
+
 Route::any('/getjurusan',[JurusanController::class, 'getjurusan']);
+Route::any('/getpegawai',[PegawaiController::class, 'getpegawai']);
 Route::any('/getbarang',[BarangController::class, 'getbarang']);
 
