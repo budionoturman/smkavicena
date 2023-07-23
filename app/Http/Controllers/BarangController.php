@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Detail_barang;
 use App\Models\Kategori;
+use App\Models\Jurusan;
 use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
 use App\Models\Kondisi;
@@ -61,22 +62,40 @@ class BarangController extends Controller
         //     $id = IdGenerator::generate(['table' => 'barangs', 'field' => 'kode_brg', 'length' => 6, 'prefix' => 'MM-']);
         // }
 
-        
+        $kdjur =Jurusan::where('id', '=', "$request->jurusan_id")->get();
+        $kategor =Kategori::where('id', '=', "$request->kategori_id")->get();
+    
+        $kodejur = $kdjur[0]->kode_jurusan;
+        $kategoriname = $kategor[0]->nama;
+        $kodebrg = $kodejur.$kategoriname;
+        $barangs = Barang::where('kode_brg', 'like', "%$kodebrg%")->get();
+        $num = count($barangs);
 
-        $validatedata1 = $request->validate([
+        $kodebrgfix = $kodebrg.$num+1;
+        //dd($kodebrgfix);
+        //$request->kode_brg= $kodebrgfix;
+
+        /*$validatedata1 = $request->validate([
             'jurusan_id' => 'required',
             'kategori_id' => 'required',
             'nama_brg' => 'required',
-            'kode_brg' => 'required',
+            'kode_brg' => $kodebrgfix ,
             'jumlah_brg' => 'required'
-        ]);
+        ]);*/
+        //dd('test');
         // $validatedata1['kode_brg'] = $id;
         
         $validatedata2= $request->validate([
             'baik'=> 'required',
             'rusak'=> 'required'
         ]);
-        $barang = new Barang($validatedata1);
+        $barang =Barang::create([
+            'jurusan_id' => $request->jurusan_id,
+            'kategori_id' => $request->kategori_id,
+            'nama_brg' => $request->nama_brg,
+            'kode_brg' => $kodebrgfix ,
+            'jumlah_brg' =>  $request->jumlah_brg,
+        ]);
         // $barang = Barang::create($validatedata1);
         $kondisi= new Kondisi($validatedata2);
         $barang->save();

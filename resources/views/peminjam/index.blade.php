@@ -84,10 +84,10 @@
                                             </td>
                                             @can('isAdmin')
                                                 <td class="text-center d-flex inline justify-content-center">
-                                                    <a href="/peminjam/{{ $pjm->id }}/edit">
+                                                   <!-- <a href="/peminjam/{{ $pjm->id }}/edit">
                                                         <button type="button" class="btn btn-warning m-1"><i
                                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                                    </a>
+                                                    </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')
@@ -98,10 +98,10 @@
                                             @endcan
                                             @can('isStaff')
                                                 <td class="text-center d-flex inline justify-content-center">
-                                                    <a href="/peminjam/{{ $pjm->id }}/edit">
+                                                    <!--<a href="/peminjam/{{ $pjm->id }}/edit">
                                                         <button type="button" class="btn btn-warning m-1"><i
                                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                                    </a>
+                                                    </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')

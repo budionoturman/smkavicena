@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2023 at 07:18 PM
+-- Generation Time: Jul 23, 2023 at 08:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,9 +43,9 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `kode_brg`, `kategori_id`, `jurusan_id`, `nama_brg`, `jumlah_brg`, `created_at`, `updated_at`) VALUES
-(1, 'TKJL', 1, 1, 'Asus', -3, '2023-07-23 00:44:03', '2023-07-23 00:44:03'),
-(2, 'TOL1', 2, 2, 'Logitech', -5, '2023-07-23 00:45:09', '2023-07-23 00:45:09'),
-(3, 'MLA1', 1, 3, 'Asus', 10, '2023-07-23 00:46:17', '2023-07-23 00:46:17');
+(5, 'TKJLaptop1', 1, 1, 'Asus', 10, '2023-07-23 11:48:37', '2023-07-23 11:48:37'),
+(6, 'TOLaptop1', 1, 2, 'Asus', 10, '2023-07-23 11:50:18', '2023-07-23 11:50:18'),
+(7, 'TKJLaptop2', 1, 1, 'Hp', 10, '2023-07-23 11:50:35', '2023-07-23 11:50:35');
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,9 @@ INSERT INTO `detail_barangs` (`id`, `barang_id`, `peminjam_id`, `jumlah`, `creat
 (7, 1, 22, 10, '2023-07-23 08:43:30', '2023-07-23 08:43:30'),
 (8, 2, 22, 5, '2023-07-23 08:43:30', '2023-07-23 08:43:30'),
 (9, 1, 23, 2, '2023-07-23 09:23:41', '2023-07-23 09:23:41'),
-(10, 2, 23, 2, '2023-07-23 09:23:41', '2023-07-23 09:23:41');
+(10, 2, 23, 2, '2023-07-23 09:23:41', '2023-07-23 09:23:41'),
+(11, 1, 24, 2, '2023-07-23 11:00:15', '2023-07-23 11:00:15'),
+(12, 2, 24, 1, '2023-07-23 11:00:15', '2023-07-23 11:00:15');
 
 -- --------------------------------------------------------
 
@@ -104,17 +106,18 @@ CREATE TABLE `jurusans` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `kode_jurusan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jurusans`
 --
 
-INSERT INTO `jurusans` (`id`, `nama`, `created_at`, `updated_at`) VALUES
-(1, 'Teknik Komputer & Jaringan', '2023-07-23 00:40:29', '2023-07-23 00:40:29'),
-(2, 'Teknik Otomotif', '2023-07-23 00:40:29', '2023-07-23 00:40:29'),
-(3, 'Multimedia', '2023-07-23 00:40:29', '2023-07-23 00:40:29');
+INSERT INTO `jurusans` (`id`, `nama`, `created_at`, `updated_at`, `kode_jurusan`) VALUES
+(1, 'Teknik Komputer & Jaringan', '2023-07-23 00:40:29', '2023-07-23 00:40:29', 'TKJ'),
+(2, 'Teknik Otomotif', '2023-07-23 00:40:29', '2023-07-23 00:40:29', 'TO'),
+(3, 'Multimedia', '2023-07-23 00:40:29', '2023-07-23 00:40:29', 'MM\r\n');
 
 -- --------------------------------------------------------
 
@@ -160,7 +163,11 @@ CREATE TABLE `kondisis` (
 INSERT INTO `kondisis` (`id`, `barang_id`, `baik`, `rusak`, `created_at`, `updated_at`) VALUES
 (1, 1, 9, 0, '2023-07-23 00:44:03', '2023-07-23 00:44:03'),
 (2, 2, 9, 0, '2023-07-23 00:45:09', '2023-07-23 00:45:09'),
-(3, 3, 10, 0, '2023-07-23 00:46:17', '2023-07-23 00:46:17');
+(3, 3, 10, 0, '2023-07-23 00:46:17', '2023-07-23 00:46:17'),
+(4, 4, 1, 0, '2023-07-23 11:43:42', '2023-07-23 11:43:42'),
+(5, 5, 10, 0, '2023-07-23 11:48:37', '2023-07-23 11:48:37'),
+(6, 6, 10, 0, '2023-07-23 11:50:18', '2023-07-23 11:50:18'),
+(7, 7, 10, 0, '2023-07-23 11:50:35', '2023-07-23 11:50:35');
 
 -- --------------------------------------------------------
 
@@ -191,7 +198,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2023_07_20_154011_create_detail_barangs', 1),
 (11, '2023_07_20_164000_create_pegawais', 1),
 (12, '2023_07_20_164057_create_peminjams_table', 1),
-(13, '2023_07_23_141905_adddate_in_peminjams_table', 2);
+(13, '2023_07_23_141905_adddate_in_peminjams_table', 2),
+(16, '2023_07_23_181204_addkode_jurusan_in_jurusans_table', 3);
 
 -- --------------------------------------------------------
 
@@ -245,14 +253,6 @@ CREATE TABLE `peminjams` (
   `total` int(11) DEFAULT NULL,
   `denda` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `peminjams`
---
-
-INSERT INTO `peminjams` (`id`, `pegawai_id`, `no_hp`, `tgl_pjm`, `tgl_kmb`, `status`, `created_at`, `updated_at`, `total`, `denda`) VALUES
-(21, 1, '0878282826877', '2023-07-23', '2023-07-24', 'sudah kembali', '2023-07-23 01:49:30', '2023-07-23 08:33:17', NULL, 5000),
-(23, 1, '0878282826876', '2023-07-23', '2023-07-25', 'sudah kembali', '2023-07-23 09:23:41', '2023-07-23 10:16:22', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -317,7 +317,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `user_name`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'kepala_staff', 'A', '$2y$10$mKc3qUIZ8NuQ2jxXrXZLU.eh/u6IZMKYqn3U83HVV3D7ZmY5Pznsq', 'kepalastaff', NULL, '2023-07-23 00:40:28', '2023-07-23 00:40:28'),
+(1, 'kepala_staff', 'kepalastaff', '$2y$10$mKc3qUIZ8NuQ2jxXrXZLU.eh/u6IZMKYqn3U83HVV3D7ZmY5Pznsq', 'kepalastaff', NULL, '2023-07-23 00:40:28', '2023-07-23 00:40:28'),
 (2, 'staff_gudang', 'staffgudang', '$2y$10$5Q27PqGJyoLPcrF0ERFd0.rcy7OVxP5YmMyHGp2KErkIO.w2qIr2S', 'staffgudang', NULL, '2023-07-23 00:40:29', '2023-07-23 00:40:29'),
 (3, 'kepala_sekolah', 'kepalasekolah', '$2y$10$Em4UcsAdhvdTQxEuz6Vp9efbRm45gV5lpbuTCdGPkfPOevaaNU0sO', 'kepala_sekolah', NULL, '2023-07-23 00:40:29', '2023-07-23 00:40:29');
 
@@ -415,13 +415,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `detail_barangs`
 --
 ALTER TABLE `detail_barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -445,13 +445,13 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `kondisis`
 --
 ALTER TABLE `kondisis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pegawais`
@@ -463,7 +463,7 @@ ALTER TABLE `pegawais`
 -- AUTO_INCREMENT for table `peminjams`
 --
 ALTER TABLE `peminjams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pengadaans`

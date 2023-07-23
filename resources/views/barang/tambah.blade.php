@@ -30,10 +30,10 @@
                                     <label for="nama_brg" class="form-label">Nama Barang</label>
                                     <input type="text" class="form-control" name="nama_brg" id="nama_brg">
                                 </div>
-                                <div class="mb-3">
+                                <!--<div class="mb-3">
                                     <label for="kode_brg" class="form-label">Kode Barang</label>
                                     <input type="text" class="form-control" name="kode_brg" id="kode_brg">
-                                </div>
+                                </div>-->
                                 <div class="mb-3">
                                     <label for="jumlah_brg" class="form-label">Jumlah</label>
                                     <input type="number" class="form-control" name="jumlah_brg" id="jumlah_brg">
