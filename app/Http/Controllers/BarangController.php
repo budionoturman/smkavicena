@@ -61,6 +61,8 @@ class BarangController extends Controller
         //     $id = IdGenerator::generate(['table' => 'barangs', 'field' => 'kode_brg', 'length' => 6, 'prefix' => 'MM-']);
         // }
 
+        
+
         $validatedata1 = $request->validate([
             'jurusan_id' => 'required',
             'kategori_id' => 'required',

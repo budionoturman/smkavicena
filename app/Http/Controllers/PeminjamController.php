@@ -79,7 +79,7 @@ class PeminjamController extends Controller
                 
                 'pegawai_id' => $request->pegawai_id,
                 'no_hp'  => $request->no_hp,
-                'tgl_pjm'  => $request->tgl_pjm,
+                'tgl_pjm'  => Carbon::now()->format('Y-m-d'),
                 'status' => $request->status,
                 'total' => array_sum($request->jumlah)
                 //'total' => 'required'

@@ -64,9 +64,7 @@
                                     <input type="number" class="form-control" name="no_hp" id="no_hp">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
-                                    <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm">
-                                </div>
+                                
                                
 
                                 {{-- <div class="mb-3">

@@ -14,6 +14,24 @@ class PengembalianController extends Controller
             'peminjam' => Peminjam::where('status', 'like', 'belum kembali')->get(),
         ]);
     }
+    public function detail($id){
+
+        // dd($request->id);
+ 
+         if($id)
+         {
+             
+          $data = Peminjam::with(['barang','pegawai'])->get()->find($id);
+          
+          //var_dump($transaksidata);
+          //exit();
+         
+            
+         } 
+
+         return view('peminjam.detail',['data' =>$data]);
+     }
+
 
 
     public function history()

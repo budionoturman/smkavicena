@@ -288,19 +288,11 @@ $(function () {
          var end = moment($("#tgl_kmb").val());
          $("#denda").val(end.diff(start, "days")*5000);
          console.log(end.diff(start, "days"));
-         });
-
+         });        
         
-        
-       
-        
-   
-
-
-
+        });
 </script>
 
-</script>
 
 
 </body>
