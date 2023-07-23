@@ -9,16 +9,18 @@ use App\Models\Kategori;
 use App\Models\Kondisi;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
-
+use DB;
+use Carbon\Carbon;
 class PeminjamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
+    
     {
         return view('peminjam/index',[
-            'peminjam' => Peminjam::all()
+            'peminjam' => Peminjam::where('status', '=', 'proses')->get()
         ]);
     }
 
@@ -37,20 +39,34 @@ class PeminjamController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->barang_id1);
+       //dd(array_sum($request->jumlah));
+
 
         $data = Barang::where('id', $request->barang_id)->value('jumlah_brg');
 
-        $dipinjam = $request->jumlah;
+       // $dipinjam = $request->jumlah;
         
-        $barangSisa = $data-$dipinjam;
+        //$barangSisa = $data-$dipinjam;
+       $barangSisa = 10;
 
-        $validatedData = $request->validate([
+        //$request->total = array_sum($request->jumlah);
+       
+      //  $request->tgl_pjm = Carbon::now()->format('Y-m-d');
+
+       
+        //dd($request->total);
+
+        /*$validatedData = $request->validate([
             'pegawai_id' => 'required',
             'no_hp'  => 'required',
             'tgl_pjm'  => 'required',
-            'status' => 'required'
-        ]);
+            'status' => 'required',
+           
+           // 'total' => array_sum($request->jumlah)
+            //'total' => 'required'
+        ]);*/
+
+        //dd($request);
 
         if ($barangSisa < 0) {
             return redirect('/peminjam/create')->with('success', 'Jumlah Barang Melebihi Stok, Tidak Bisa Pinjam');
@@ -58,11 +74,43 @@ class PeminjamController extends Controller
             # code...
            /* Barang::where('id', $request->barang_id)->update(['jumlah_brg' => $barangSisa]);
             Kondisi::where('id', $request->barang_id)->update(['baik' => $barangSisa]);*/
-            $peminjam = Peminjam::create($validatedData);
+           /* $peminjam = Peminjam::create($validatedData);*/
+            $peminjam = Peminjam::create([
+                
+                'pegawai_id' => $request->pegawai_id,
+                'no_hp'  => $request->no_hp,
+                'tgl_pjm'  => $request->tgl_pjm,
+                'status' => $request->status,
+                'total' => array_sum($request->jumlah)
+                //'total' => 'required'
+            ]);
+            for($i = 0;$i<=count($request->barang_id)-1;$i++)
+            {
+                $brg = Barang::find($request->barang_id[$i])->get();
+                $jmlh = $brg[0]->jumlah_brg-$request->jumlah[$i];
+              
 
+                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_brg' => $jmlh]);
+                //$post->save()
 
+                Detail_barang::create([ 
+                    'peminjam_id' => $peminjam->id,
+                    'barang_id' => $request->barang_id[$i],
+                    'jumlah' => $request->jumlah[$i]
 
-            Detail_barang::create([ 
+                ]);
+             }
+
+            /*foreach ($request->barang_id as $key => $value) {
+                Detail_barang::create([ 
+                    'peminjam_id' => $peminjam->id,
+                    'barang_id' => $value,
+                    'jumlah' => $request->jumlah[$loop->iteration ],
+                ]);
+            }*/
+    
+
+            /*Detail_barang::create([ 
               
                 'peminjam_id' => $peminjam->id,
                 'barang_id' => $request->barang_id,
@@ -79,7 +127,7 @@ class PeminjamController extends Controller
                 'peminjam_id' => $peminjam->id,
                 'barang_id' => $request->barang_id2,
                 'jumlah' => $request->jumlah2,
-            ]);
+            ]);*/
 
             return redirect('/peminjam');
         }
@@ -144,4 +192,20 @@ class PeminjamController extends Controller
 
         return response()->json($filter_data);
     }
+
+    public function proses(Request $request){
+        //$transaksidata = Transaksi::query()->get()->find($id);
+        $peminjam = Peminjam::findOrFail($request->id);
+
+
+        $peminjam->status = "belum kembali";
+        
+        $peminjam->save();
+
+
+        return redirect('/peminjam');
+   }
+
+
+
 }

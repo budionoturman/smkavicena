@@ -78,7 +78,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $pjm->nama }}</td>
-                                            <td>{{ $pjm->barang->nama_brg }}</td>
+                                            <td></td>
                                             <td>{{ $pjm->jumlah }}</td>
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td>

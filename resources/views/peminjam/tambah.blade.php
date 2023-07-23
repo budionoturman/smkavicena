@@ -22,30 +22,30 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang" name="barang_id" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jumlah" class="form-label">Jumlah</label>
-                                    <input type="text" class="form-control" name="jumlah" id="jumlah">
+                                    <input type="text" class="form-control" name="jumlah[]" id="jumlah">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang1" name="barang_id1" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang1" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jumlah" class="form-label">Jumlah</label>
-                                    <input type="text" class="form-control" name="jumlah1" id="jumlah">
+                                    <input type="text" class="form-control" name="jumlah[]" id="jumlah">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang2" name="barang_id2" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang2" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jumlah" class="form-label">Jumlah</label>
-                                    <input type="text" class="form-control" name="jumlah2" id="jumlah">
+                                    <input type="text" class="form-control" name="jumlah[]" id="jumlah">
                                 </div>
                                <!-- <div class="mb-3">
                                     <label for="barang_id" class="form-label">Barang</label>
@@ -67,14 +67,16 @@
                                     <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
                                     <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm">
                                 </div>
+                               
+
                                 {{-- <div class="mb-3">
                     <label for="tgl_kmb" class="form-label">Tanggal Kembali</label>
                     <input type="date" class="form-control" name="tgl_kmb" id="tgl_kmb">
                 </div> --}}
                                 <div class="mb-3">
-                                    <label for="status" class="form-label">Status</label>
+                                   
                                     <input type="hidden" class="form-control" name="status" id="status"
-                                        value="belum kembali">
+                                        value="proses">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

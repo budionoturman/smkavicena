@@ -12,7 +12,7 @@
                 <div class="card w-100">
                     <div class="card-body p-4">
                         <div class="d-flex inline justify-content-between">
-                            <h5 class="card-title fw-semibold mb-4">Tabel Peminjam</h5>
+                            <h5 class="card-title fw-semibold mb-4">Tabel History</h5>
                             {{-- @can('isAdmin')
                                 <button type="button" class="btn btn-outline-secondary m-1">
                                     <a href="/pengembalian/"> Tambah</a>
@@ -44,18 +44,12 @@
                                             <h6 class="fw-semibold mb-0">Tgl Pinjam</h6>
                                         </th>
                                         <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">Tgl Kembali</h6>
+                                        </th>
+                                        <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Status</h6>
                                         </th>
-                                        @can('isAdmin')
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0 text-center">Aksi</h6>
-                                            </th>
-                                        @endcan
-                                        @can('isStaff')
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0 text-center">Aksi</h6>
-                                            </th>
-                                        @endcan
+                                  
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,34 +64,12 @@
                                                 ?></td>
                                             <td>10</td>
                                             <td>{{ $pjm->no_hp }}</td>
-                                            <td>{{ $pjm->tgl_pjm }}</td>
+                                            <td>{{ $pjm->tgl_pjm }}</td> 
+                                            <td>{{ $pjm->tgl_kmb }}</td>
                                             <td>
                                                 <button class="btn btn-danger m-1">{{ $pjm->status }}</button>
                                             </td>
-                                            @can('isAdmin')
-                                                <td class="text-center d-flex inline justify-content-center">
-                                                    <a href="/kembalikan/{{ $pjm->id }}">
-                                                        <button type="button" class="btn btn-success m-1">Kembalikan</button>
-                                                    </a>
-                                                    {{-- <form action="/pengembalian/{{ $pjm->id }}/edit" method="post">
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="btn btn-outline-danger m-1">kembalikan</button>
-                                                </form> --}}
-                                                </td>
-                                            @endcan
-                                            @can('isStaff')
-                                                <td class="text-center d-flex inline justify-content-center">
-                                                    <a href="/pengembalian/edit/{{ $pjm->id }}">
-                                                        <button type="button" class="btn btn-success m-1">Kembalikan</button>
-                                                    </a>
-                                                    {{-- <form action="/pengembalian/{{ $pjm->id }}/edit" method="post">
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="btn btn-outline-danger m-1">kembalikan</button>
-                                                </form> --}}
-                                                </td>
-                                            @endcan
+                                          
                                         </tr>
                                     @endforeach
                                 </tbody>

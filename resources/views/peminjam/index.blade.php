@@ -28,9 +28,9 @@
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Nama</h6>
                                         </th>
-                                      <!--  <th class="border-bottom-0">
+                                      <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Barang</h6>
-                                        </th>-->
+                                      </th>
                                        <!-- <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Jumlah</h6>
                                         </th>-->
@@ -63,12 +63,21 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $pjm->pegawai->nama}}</td>
+                                            <td><?php
+                                            foreach ($pjm->barang as $brg){ 
+                                            echo $brg->kode_brg . ' ' . '(' . $brg->pivot->jumlah . ')' .'<br>';
+                                            }
+                                            ?></td>
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td>
                                             <td>{{ $pjm->tgl_kmb }}</td>
                                             <td>
                                                 @if ($pjm->status === 'belum kembali')
                                                     <button class="btn btn-danger m-1">{{ $pjm->status }}</button>
+                                                @elseif($pjm->status === 'proses' )
+                                                <a href="/proses/{{ $pjm->id }}">
+                                                    <button type="button" class="btn btn-success m-1">{{ $pjm->status }}</button>
+                                                </a>
                                                 @else
                                                     <button class="btn btn-success m-1">{{ $pjm->status }}</button>
                                                 @endif

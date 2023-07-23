@@ -10,9 +10,13 @@ class Peminjam extends Model
     use HasFactory;
     protected $guarded=['id'];
 
-    public function barang()
+   /* public function barang()
     {
         return $this->belongsTo(Barang::class);
+    }*/
+    public function barang()
+    {
+        return $this->belongsToMany(Barang::class,'detail_barangs')->withPivot('jumlah');
     }
     public function pegawai()
     {

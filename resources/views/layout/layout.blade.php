@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('admin-ui') }}/src/assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="{{ asset('admin-ui') }}/src/assets/css/styles.min.css" />
     <script src="https://kit.fontawesome.com/41517c21c4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <!-- Main style -->
   <link rel="stylesheet" href="{{asset('/')}}css/main.css?v=<?php echo time();?>">
@@ -81,6 +82,14 @@
                                     <i class="fa-solid fa-clock-rotate-left"></i>
                                 </span>
                                 <span class="hide-menu">Pengembalian</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/history" aria-expanded="false">
+                                <span>
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                </span>
+                                <span class="hide-menu">History</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -268,6 +277,32 @@ $(function () {
       });
 });
 </script>
+<script>
+     $(document).ready(function () {
+       
+        //var end = moment($("#tgl_kmb").val());
+
+    
+        $("#tgl_kmb").change(function () {
+         var start = moment($("#tgl_pjm").val());
+         var end = moment($("#tgl_kmb").val());
+         $("#denda").val(end.diff(start, "days")*5000);
+         console.log(end.diff(start, "days"));
+         });
+
+        
+        
+       
+        
+   
+
+
+
+</script>
+
+</script>
+
+
 </body>
 
 </html>

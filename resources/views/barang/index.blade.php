@@ -28,6 +28,9 @@
                                         <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
                                             <h6 class="fw-semibold mb-0">Kategori</h6>
                                         </th>
+                                               <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Kode</h6>
+                                        </th>
                                         <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
                                             <h6 class="fw-semibold mb-0">Nama Barang</h6>
                                         </th>
@@ -61,6 +64,7 @@
                                         <tr>
                                             <td>{{ $brg->id }}</td>
                                             <td>{{ $brg->kategori->nama }}</td>
+                                            <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td class="text-center">{{ $brg->jumlah_brg }}</td>
                                             <td class="text-center">{{ $brg->kondisi->baik }}</td>

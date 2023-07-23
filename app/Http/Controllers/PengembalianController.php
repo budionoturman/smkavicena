@@ -15,6 +15,14 @@ class PengembalianController extends Controller
         ]);
     }
 
+
+    public function history()
+    {
+        return view('pengembalian/history',[
+            'peminjam' => Peminjam::where('status', 'like', 'sudah kembali')->get(),
+        ]);
+    }
+
     public function edit($id)
     {
         return view('pengembalian/edit',[
@@ -45,4 +53,41 @@ class PengembalianController extends Controller
         Barang::where('id', $request->barang_id)->update(['jumlah_brg' => $barangSisa]);
         return redirect('/pengembalian')->with('success', 'Barang berhasil dikembalikan');
     }
+
+    public function storekembali(Request $request){
+         //$transaksidata = Transaksi::query()->get()->find($id);
+         $peminjam = Peminjam::findOrFail($request->id);
+
+         $peminjam->tgl_kmb = $request->tgl_kmb;
+         $peminjam->denda = $request->denda;
+         $peminjam->status = "sudah kembali";
+         
+         $peminjam->save();
+ 
+
+         return redirect('/pengembalian');
+    }
+
+    public function kembalikan($id){
+
+        // dd($request->id);
+ 
+         if($id)
+         {
+             
+          $peminjam = Peminjam::with(['barang','pegawai'])->get()->find($id);
+          //var_dump($peminjam);
+          //exit();
+          
+          //var_dump($transaksidata);
+          //exit();
+         
+            
+         } 
+
+
+         //var_dump(['data' => $peminjam->tgl_pjm]);
+         //exit();
+         return view('pengembalian.kembalikan',['data' => $peminjam]);
+     }
 }

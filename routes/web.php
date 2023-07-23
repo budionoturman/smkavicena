@@ -36,6 +36,11 @@ Route::get('peminjam/create/action', [PeminjamController::class, 'action'])->nam
 Route::get('pengembalian', [PengembalianController::class, 'pengembalian']);
 Route::get('pengembalian/edit/{id}', [PengembalianController::class, 'edit']);
 Route::post('pengembalian/update', [PengembalianController::class, 'update'])->name('pengembalianbarang');
+Route::any('/kembalikan/{id}',[PengembalianController::class, 'kembalikan']);
+Route::any('/storekembali',[PengembalianController::class, 'storekembali']);
+Route::any('/proses/{id}',[PeminjamController::class, 'proses']);
+
+Route::any('history', [PengembalianController::class, 'history']);
 
 Route::resource('pengadaan', PengadaanController::class);
 Route::get('stok',[BarangController::class, 'stok']);
