@@ -47,6 +47,9 @@
                                             <h6 class="fw-semibold mb-0">Tgl Kembali</h6>
                                         </th>
                                         <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">Denda</h6> 
+                                        </th>
+                                        <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Status</h6>
                                         </th>
                                   
@@ -66,6 +69,7 @@
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td> 
                                             <td>{{ $pjm->tgl_kmb }}</td>
+                                            <td>{{ $pjm->denda }}</td>
                                             <td>
                                                 <button class="btn btn-danger m-1">{{ $pjm->status }}</button>
                                             </td>
