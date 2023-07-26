@@ -64,6 +64,14 @@
                                 <span class="hide-menu">Data Pegawai</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/kategori" aria-expanded="false">
+                                <span>
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <span class="hide-menu">Kategori</span>
+                            </a>
+                        </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Peminjaman & Pengembalian</span>
@@ -232,6 +240,28 @@ $(function() {
 });
 
 
+$(function () {
+    $('#selectcategory').select2({
+        placeholder: 'Select Category',
+          ajax: {
+              url: '/getcategory',
+              dataType: 'json',
+              delay: 250,
+              processResults: function (data) {
+                  return {
+                      results: $.map(data, function (item) {
+                          return {
+                              text: item.nama,
+                              id: item.id
+                          }
+                      })
+                  };
+              },
+              cache: true
+          }
+      });
+});
+
 
 $(function () {
     $('.selectbarang').select2({
@@ -286,8 +316,14 @@ $(function () {
         $("#tgl_kmb").change(function () {
          var start = moment($("#tgl_pjm").val());
          var end = moment($("#tgl_kmb").val());
-         $("#denda").val(end.diff(start, "days")*5000);
-         console.log(end.diff(start, "days"));
+         if(end.diff(start, "days") > 5){
+           var denda =  (end.diff(start, "days") - 5 )*5000;
+
+         }else{
+            var denda =  0;
+         }
+         $("#denda").val(denda);
+         console.log(denda);
          });        
         
         });

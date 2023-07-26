@@ -40,6 +40,14 @@ Route::any('/kembalikan/{id}',[PengembalianController::class, 'kembalikan']);
 Route::any('/storekembali',[PengembalianController::class, 'storekembali']);
 Route::any('/proses/{id}',[PeminjamController::class, 'proses']);
 
+Route::any('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori-add', [KategoriController::class, 'add']);
+Route::any('/kategori-edit/{id}', [KategoriController::class, 'edit']);
+Route::any('/kategori-delete/{id}', [KategoriController::class, 'delete']);
+
+Route::any('history', [PengembalianController::class, 'history']);
+Route::any('history', [PengembalianController::class, 'history']);
+
 Route::any('history', [PengembalianController::class, 'history']);
 
 Route::resource('pengadaan', PengadaanController::class);
