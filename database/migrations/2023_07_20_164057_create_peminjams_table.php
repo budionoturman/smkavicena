@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pegawai_id');
             $table->string('no_hp');
+            
             $table->string('tgl_pjm');
             $table->string('tgl_kmb')->nullable();
             $table->string('status');

@@ -6,7 +6,7 @@
                 <div class="card w-100">
                     <div class="card-body p-4">
                         <div class="d-flex inline justify-content-between">
-                            <h5 class="card-title fw-semibold mb-4">Tabel Data Barang</h5>
+                            <h5 class="card-title fw-semibold mb-4">Tabel Data pegawai</h5>
                             @can('isAdmin')
                                 <button type="button" class="btn btn-outline-secondary m-1">
                                     <a href="/pegawai/create"> Tambah</a>

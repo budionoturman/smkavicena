@@ -1,17 +1,18 @@
 <?php
 
+use App\Models\Barang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\PengembalianController;
-use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\PegawaiController;
-use App\Models\Barang;
-use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +41,14 @@ Route::any('/kembalikan/{id}',[PengembalianController::class, 'kembalikan']);
 Route::any('/storekembali',[PengembalianController::class, 'storekembali']);
 Route::any('/proses/{id}',[PeminjamController::class, 'proses']);
 
-Route::any('/kategori', [KategoriController::class, 'index']);
-Route::get('/kategori-add', [KategoriController::class, 'add']);
-Route::any('/kategori-edit/{id}', [KategoriController::class, 'edit']);
-Route::any('/kategori-delete/{id}', [KategoriController::class, 'delete']);
+Route::resource('kategori', KategoriController::class);
+// Route::any('/kategori', [KategoriController::class, 'index']);
+// Route::any('/kategori/create', [KategoriController::class, 'create']);
+// Route::post('/kategori', [KategoriController::class, 'store']);
+// Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
+// Route::get('/kategori-add', [KategoriController::class, 'add']);
+// Route::any('/kategori-edit/{id}', [KategoriController::class, 'edit']);
+// Route::any('/kategori-delete/{id}', [KategoriController::class, 'delete']);
 
 Route::any('history', [PengembalianController::class, 'history']);
 Route::any('history', [PengembalianController::class, 'history']);
@@ -58,4 +63,9 @@ Route::resource('pegawai', PegawaiController::class);
 Route::any('/getjurusan',[JurusanController::class, 'getjurusan']);
 Route::any('/getpegawai',[PegawaiController::class, 'getpegawai']);
 Route::any('/getbarang',[BarangController::class, 'getbarang']);
+
+
+//pdf pengadaan barang
+
+Route::any('/pengadaan/{id}/laporan',[PengadaanController::class, 'pdf']);
 

@@ -11,7 +11,7 @@
                                 <button type="button" class="btn btn-outline-secondary m-1">
                                     <a href="/peminjam/create"> Tambah</a>
                                 </button>
-                            @endcan 
+                            @endcan
                             @can('isStaff')
                                 <button type="button" class="btn btn-outline-secondary m-1">
                                     <a href="/peminjam/create"> Tambah</a>
@@ -28,12 +28,12 @@
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Nama</h6>
                                         </th>
-                                      <th class="border-bottom-0">
+                                        <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Barang</h6>
-                                      </th>
-                                       <!-- <th class="border-bottom-0">
+                                        </th>
+                                        <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Jumlah</h6>
-                                        </th>-->
+                                        </th>
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">No. Hp</h6>
                                         </th>
@@ -62,10 +62,15 @@
                                     @foreach ($peminjam as $pjm)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $pjm->pegawai->nama}}</td>
+                                            <td>{{ $pjm->pegawai->nama }}</td>
                                             <td><?php
-                                            foreach ($pjm->barang as $brg){ 
-                                            echo $brg->kode_brg . ' ' . '(' . $brg->pivot->jumlah . ')' .'<br>';
+                                            foreach ($pjm->barang as $brg) {
+                                                echo $brg->kode_brg;
+                                            }
+                                            ?></td>
+                                            <td><?php
+                                            foreach ($pjm->barang as $brg) {
+                                                echo '' . $brg->pivot->jumlah . '';
                                             }
                                             ?></td>
                                             <td>{{ $pjm->no_hp }}</td>
@@ -74,20 +79,21 @@
                                             <td>
                                                 @if ($pjm->status === 'belum kembali')
                                                     <button class="btn btn-danger m-1">{{ $pjm->status }}</button>
-                                                @elseif($pjm->status === 'proses' )
-                                                <a href="/proses/{{ $pjm->id }}">
-                                                    <button type="button" class="btn btn-success m-1">{{ $pjm->status }}</button>
-                                                </a>
+                                                @elseif($pjm->status === 'proses')
+                                                    <a href="/proses/{{ $pjm->id }}">
+                                                        <button type="button"
+                                                            class="btn btn-success m-1">{{ $pjm->status }}</button>
+                                                    </a>
                                                 @else
                                                     <button class="btn btn-success m-1">{{ $pjm->status }}</button>
                                                 @endif
                                             </td>
                                             @can('isAdmin')
                                                 <td class="text-center d-flex inline justify-content-center">
-                                                   <!-- <a href="/peminjam/{{ $pjm->id }}/edit">
-                                                        <button type="button" class="btn btn-warning m-1"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                    </a>-->
+                                                    <!-- <a href="/peminjam/{{ $pjm->id }}/edit">
+                                                                                                        <button type="button" class="btn btn-warning m-1"><i
+                                                                                                                class="fa-solid fa-pen-to-square"></i></button>
+                                                                                                    </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')
@@ -99,9 +105,9 @@
                                             @can('isStaff')
                                                 <td class="text-center d-flex inline justify-content-center">
                                                     <!--<a href="/peminjam/{{ $pjm->id }}/edit">
-                                                        <button type="button" class="btn btn-warning m-1"><i
-                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                    </a>-->
+                                                                                                        <button type="button" class="btn btn-warning m-1"><i
+                                                                                                                class="fa-solid fa-pen-to-square"></i></button>
+                                                                                                    </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')

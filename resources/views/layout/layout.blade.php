@@ -10,8 +10,8 @@
     <script src="https://kit.fontawesome.com/41517c21c4.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <!-- Main style -->
-  <link rel="stylesheet" href="{{asset('/')}}css/main.css?v=<?php echo time();?>">
+    <!-- Main style -->
+    <link rel="stylesheet" href="{{ asset('/') }}css/main.css?v=<?php echo time(); ?>">
     {{-- datatables --}}
     <link rel="stylesheet" href="{{ asset('admin-ui') }}/src/datatables/dataTables.bootstrap4.css">
 </head>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                <nav class="sidebar-nav text-white" data-simplebar="" style=" ">
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -194,140 +194,140 @@
     <script src="{{ asset('admin-ui') }}/src/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('admin-ui') }}/src/datatables/datatables-demo.js"></script>
     <!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<script>
-$(function() {
-  /*  $( ".datepicker" ).datepicker({
-        dateFormat: 'dd-mm-yy',
-        yearRange: "-70:+0",
-        changeMonth: true,
-        changeYear: true,
-     });
-    });*/
+    <script>
+        $(function() {
+            /*  $( ".datepicker" ).datepicker({
+                  dateFormat: 'dd-mm-yy',
+                  yearRange: "-70:+0",
+                  changeMonth: true,
+                  changeYear: true,
+               });
+              });*/
 
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-  
-   /* $(document).ready(function () {
-      bsCustomFileInput.init()
-    })    */
- 
-
-  });
-
-  $(function () {
-    $('#selectjurusan').select2({
-        placeholder: 'Select Jurusan',
-          ajax: {
-              url: '/getjurusan',
-              dataType: 'json',
-              delay: 250,
-              processResults: function (data) {
-                  return {
-                      results: $.map(data, function (item) {
-                          return {
-                              text: item.nama,
-                              id: item.id
-                          }
-                      })
-                  };
-              },
-              cache: true
-          }
-      });
-});
+            //Initialize Select2 Elements
+            $('.select2').select2()
 
 
-$(function () {
-    $('#selectcategory').select2({
-        placeholder: 'Select Category',
-          ajax: {
-              url: '/getcategory',
-              dataType: 'json',
-              delay: 250,
-              processResults: function (data) {
-                  return {
-                      results: $.map(data, function (item) {
-                          return {
-                              text: item.nama,
-                              id: item.id
-                          }
-                      })
-                  };
-              },
-              cache: true
-          }
-      });
-});
+            /* $(document).ready(function () {
+               bsCustomFileInput.init()
+             })    */
 
 
-$(function () {
-    $('.selectbarang').select2({
-        placeholder: 'Select Barang',
-          ajax: {
-              url: '/getbarang',
-              dataType: 'json',
-              delay: 250,
-              processResults: function (data) {
-                  return {
-                      results: $.map(data, function (item) {
-                          return {
-                              text: item.kode_brg,
-                              id: item.id
-                          }
-                      })
-                  };
-              },
-              cache: true
-          }
-      });
-});
-
-$(function () {
-    $('#selectpegawai').select2({
-        placeholder: 'Select Pegawai',
-          ajax: {
-              url: '/getpegawai',
-              dataType: 'json',
-              delay: 250,
-              processResults: function (data) {
-                  return {
-                      results: $.map(data, function (item) {
-                          return {
-                              text: item.nama,
-                              id: item.id
-                          }
-                      })
-                  };
-              },
-              cache: true
-          }
-      });
-});
-</script>
-<script>
-     $(document).ready(function () {
-       
-        //var end = moment($("#tgl_kmb").val());
-
-    
-        $("#tgl_kmb").change(function () {
-         var start = moment($("#tgl_pjm").val());
-         var end = moment($("#tgl_kmb").val());
-         if(end.diff(start, "days") > 5){
-           var denda =  (end.diff(start, "days") - 5 )*5000;
-
-         }else{
-            var denda =  0;
-         }
-         $("#denda").val(denda);
-         console.log(denda);
-         });        
-        
         });
-</script>
+
+        $(function() {
+            $('#selectjurusan').select2({
+                placeholder: 'Select Jurusan',
+                ajax: {
+                    url: '/getjurusan',
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+
+
+        $(function() {
+            $('#selectcategory').select2({
+                placeholder: 'Select Category',
+                ajax: {
+                    url: '/getcategory',
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+
+
+        $(function() {
+            $('.selectbarang').select2({
+                placeholder: 'Select Barang',
+                ajax: {
+                    url: '/getbarang',
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.kode_brg,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+
+        $(function() {
+            $('#selectpegawai').select2({
+                placeholder: 'Select Pegawai',
+                ajax: {
+                    url: '/getpegawai',
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            //var end = moment($("#tgl_kmb").val());
+
+
+            $("#tgl_kmb").change(function() {
+                var start = moment($("#tgl_pjm").val());
+                var end = moment($("#tgl_kmb").val());
+                if (end.diff(start, "days") > 5) {
+                    var denda = (end.diff(start, "days") - 5) * 5000;
+
+                } else {
+                    var denda = 0;
+                }
+                $("#denda").val(denda);
+                console.log(denda);
+            });
+
+        });
+    </script>
 
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Http\Requests\StoreKategoriRequest;
 use App\Http\Requests\UpdateKategoriRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -24,15 +26,19 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori/tambah');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKategoriRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+        ]);
+        Kategori::create($validatedData);
+        return redirect('/kategori');
     }
 
     /**
@@ -48,15 +54,21 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        return view('kategori/edit', [
+            'kategori' => $kategori
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKategoriRequest $request, Kategori $kategori)
+    public function update(Request $request, Kategori $kategori)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required'
+        ]);
+        Kategori::where('id', $kategori->id)->update($validatedData);
+        return redirect('/kategori');
     }
 
     /**
@@ -64,6 +76,7 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+        Kategori::destroy($kategori->id);
+        return redirect('/kategori');
     }
 }

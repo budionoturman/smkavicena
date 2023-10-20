@@ -15,8 +15,9 @@ class PengadaanController extends Controller
      */
     public function index()
     {
+        $pengadaan = Pengadaan::has('barang')->get();
         return view('pengadaan/index',[
-            'pengadaan' => Pengadaan::all(),
+            'pengadaan' => $pengadaan,
         ]);
     }
 
@@ -84,5 +85,10 @@ class PengadaanController extends Controller
     public function destroy(Pengadaan $pengadaan)
     {
         //
+    }
+
+    public function pdf($id)
+    {
+        return view('pdf/pdf');
     }
 }

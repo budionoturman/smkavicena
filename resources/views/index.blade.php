@@ -21,7 +21,7 @@
                                 <tbody>
                                     @foreach ($barang as $brg)
                                         <tr>
-                                            <td>{{ $brg->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $brg->kategori->nama }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td>{{ $brg->jumlah_brg }}</td>
@@ -77,9 +77,18 @@
                                     @foreach ($peminjam as $pjm)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $pjm->nama }}</td>
-                                            <td></td>
-                                            <td>{{ $pjm->jumlah }}</td>
+                                            <td>{{ $pjm->pegawai->nama }}</td>
+                                            <td><?php
+                                            foreach ($pjm->barang as $brg) {
+                                                echo $brg->kode_brg;
+                                            }
+                                            ?></td>
+                                            <td><?php
+                                            foreach ($pjm->barang as $brg) {
+                                                echo '' . $brg->pivot->jumlah . '';
+                                            }
+                                            ?></td>
+                                            {{-- <td>{{ $pjm->jumlah }}</td> --}}
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td>
                                             <td>{{ $pjm->tgl_kmb }}</td>

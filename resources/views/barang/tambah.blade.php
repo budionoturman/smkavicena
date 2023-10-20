@@ -13,11 +13,11 @@
                                 {{-- <div class="mb-3">
                   <label for="kode_brg" class="form-label">ID Barang</label>
                   <input type="text" class="form-control" id="kode_brg" name="kode_brg">
-                </div> --}}       <div class="form-group mb-3">
+                </div> --}} <div class="form-group mb-3">
                                     <label class="form-label">Jurusan</label>
                                     <select id="selectjurusan" name="jurusan_id" class="form-control" style="width: 100%;">
                                     </select>
-                                    </div>
+                                </div>
                                 <div class="mb-3">
                                     <label for="kategori_id" class="form-label">Kategori</label>
                                     <select class="form-select" name="kategori_id" aria-label="Default select example">
@@ -31,9 +31,9 @@
                                     <input type="text" class="form-control" name="nama_brg" id="nama_brg">
                                 </div>
                                 <!--<div class="mb-3">
-                                    <label for="kode_brg" class="form-label">Kode Barang</label>
-                                    <input type="text" class="form-control" name="kode_brg" id="kode_brg">
-                                </div>-->
+                                        <label for="kode_brg" class="form-label">Kode Barang</label>
+                                        <input type="text" class="form-control" name="kode_brg" id="kode_brg">
+                                    </div>-->
                                 <div class="mb-3">
                                     <label for="jumlah_brg" class="form-label">Jumlah</label>
                                     <input type="number" class="form-control" name="jumlah_brg" id="jumlah_brg">

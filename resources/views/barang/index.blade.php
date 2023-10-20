@@ -28,7 +28,7 @@
                                         <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
                                             <h6 class="fw-semibold mb-0">Kategori</h6>
                                         </th>
-                                               <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
                                             <h6 class="fw-semibold mb-0">Kode</h6>
                                         </th>
                                         <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
@@ -62,7 +62,7 @@
                                 <tbody>
                                     @foreach ($barang as $brg)
                                         <tr>
-                                            <td>{{ $brg->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $brg->kategori->nama }}</td>
                                             <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>

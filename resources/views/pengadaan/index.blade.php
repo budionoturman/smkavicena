@@ -53,6 +53,11 @@
                                                                 class="fa-solid fa-pen-to-square"></i>
                                                         </button>
                                                     </a>
+                                                    <a href="/pengadaan/{{ $pengadaan->id }}/laporan">
+                                                        <button type="button" class="btn btn-outline-warning m-1"><i
+                                                                class="fa-solid fa-eye"></i>
+                                                        </button>
+                                                    </a>
                                                 </td>
                                             @endcan
                                         </tr>
