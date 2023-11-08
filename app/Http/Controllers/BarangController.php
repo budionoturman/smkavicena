@@ -68,10 +68,10 @@ class BarangController extends Controller
         $kodejur = $kdjur[0]->kode_jurusan;
         $kategoriname = $kategor[0]->nama;
         $kodebrg = $kodejur.$kategoriname;
-        $barangs = Barang::where('kode_brg', 'like', "%$kodebrg%")->get();
+        $barangs = Barang::where('kode_brg', 'like', "%$kodejur%")->get();
         $num = count($barangs);
 
-        $kodebrgfix = $kodebrg.$num+1;
+        $kodebrgfix = $kodejur."-".$num+1;
         //dd($kodebrgfix);
         //$request->kode_brg= $kodebrgfix;
 
@@ -169,7 +169,7 @@ class BarangController extends Controller
                     ->where('kode_brg', 'LIKE', "%$search%")
                     ->get();
         }else{ 
-            $barang =Barang::select("id", "kode_brg")->orderBy('id')->get();
+            $barang =Barang::select("id", "kode_brg", "nama_brg")->orderBy('id')->get();
         }
         return response()->json($barang);
     }

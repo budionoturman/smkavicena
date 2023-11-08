@@ -92,7 +92,6 @@ class PeminjamController extends Controller
 
                 DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_brg' => $jmlh]);
                 //$post->save()
-
                 Detail_barang::create([ 
                     'peminjam_id' => $peminjam->id,
                     'barang_id' => $request->barang_id[$i],

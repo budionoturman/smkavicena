@@ -65,14 +65,15 @@
                                             <td>{{ $pjm->pegawai->nama }}</td>
                                             <td><?php
                                             foreach ($pjm->barang as $brg) {
-                                                echo $brg->kode_brg;
+                                                echo $brg->nama_brg . ',  ';
                                             }
                                             ?></td>
-                                            <td><?php
+                                            <td>{{ $pjm->total }}</td>
+                                            {{-- <td><?php/*
                                             foreach ($pjm->barang as $brg) {
                                                 echo '' . $brg->pivot->jumlah . '';
                                             }
-                                            ?></td>
+                                            */?> ?> ?> ?> ?></td> --}}
                                             <td>{{ $pjm->no_hp }}</td>
                                             <td>{{ $pjm->tgl_pjm }}</td>
                                             <td>{{ $pjm->tgl_kmb }}</td>
@@ -91,9 +92,9 @@
                                             @can('isAdmin')
                                                 <td class="text-center d-flex inline justify-content-center">
                                                     <!-- <a href="/peminjam/{{ $pjm->id }}/edit">
-                                                                                                        <button type="button" class="btn btn-warning m-1"><i
-                                                                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                                                                    </a>-->
+                                                                                                                                                <button type="button" class="btn btn-warning m-1"><i
+                                                                                                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                                                                                            </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')
@@ -105,9 +106,9 @@
                                             @can('isStaff')
                                                 <td class="text-center d-flex inline justify-content-center">
                                                     <!--<a href="/peminjam/{{ $pjm->id }}/edit">
-                                                                                                        <button type="button" class="btn btn-warning m-1"><i
-                                                                                                                class="fa-solid fa-pen-to-square"></i></button>
-                                                                                                    </a>-->
+                                                                                                                                                <button type="button" class="btn btn-warning m-1"><i
+                                                                                                                                                        class="fa-solid fa-pen-to-square"></i></button>
+                                                                                                                                            </a>-->
                                                     <form action="/peminjam/{{ $pjm->id }}" method="post">
                                                         @csrf
                                                         @method('delete')

@@ -66,6 +66,6 @@ Route::any('/getbarang',[BarangController::class, 'getbarang']);
 
 
 //pdf pengadaan barang
-
-Route::any('/pengadaan/{id}/laporan',[PengadaanController::class, 'pdf']);
+Route::get('pdf',[PengadaanController::class, 'pdf']);
+Route::get('pdf/cetak',[PengadaanController::class, 'cetakPdf']);
 

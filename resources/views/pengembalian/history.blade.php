@@ -29,11 +29,11 @@
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Nama</h6>
                                         </th>
-                                     
+
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Barang</h6>
                                         </th>
-                                     
+
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Jumlah Total</h6>
                                         </th>
@@ -47,12 +47,12 @@
                                             <h6 class="fw-semibold mb-0">Tgl Kembali</h6>
                                         </th>
                                         <th class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-0">Denda</h6> 
+                                            <h6 class="fw-semibold mb-0">Denda</h6>
                                         </th>
                                         <th class="border-bottom-0">
                                             <h6 class="fw-semibold mb-0">Status</h6>
                                         </th>
-                                  
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,19 +61,19 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $pjm->pegawai->nama }}</td>
                                             <td><?php
-                                                foreach ($pjm->barang as $brg){ 
-                                                echo $brg->kode_brg . ' ' . '(' . $brg->pivot->jumlah . ')';
-                                                }
-                                                ?></td>
-                                            <td>10</td>
+                                            foreach ($pjm->barang as $brg) {
+                                                echo $brg->nama_brg . ' ' . '(' . $brg->pivot->jumlah . ')' . '<br>';
+                                            }
+                                            ?></td>
+                                            <td>{{ $pjm->total }}</td>
                                             <td>{{ $pjm->no_hp }}</td>
-                                            <td>{{ $pjm->tgl_pjm }}</td> 
+                                            <td>{{ $pjm->tgl_pjm }}</td>
                                             <td>{{ $pjm->tgl_kmb }}</td>
                                             <td>{{ $pjm->denda }}</td>
                                             <td>
                                                 <button class="btn btn-danger m-1">{{ $pjm->status }}</button>
                                             </td>
-                                          
+
                                         </tr>
                                     @endforeach
                                 </tbody>

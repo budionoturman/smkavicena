@@ -2,6 +2,49 @@
 @section('container')
     <div class="container-fluid">
         <div class="row">
+            <div class="row-lg-12 d-flex align-items-stretch">
+                <div class="mx-4">
+                    <div class="card" style="width: 18rem; mx-10;">
+                        <img src="https://www.quipper.com/id/blog/wp-content/uploads/2022/09/Teknik-Komputer-Jaringan.webp"
+                            class="img-thumbnail alt="..." style="widows: 100px; height:250px">
+                        <div class="card-body">
+                            <h5 class="card-title">Jumlah Barang</h5>
+                            <p class="card-text">
+                                Teknik Komputer Jaringan : <br>
+                                {{ $jumlahTkj }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-4">
+                    <div class="card" style="width: 18rem; mx-10;">
+                        <img src="https://i.pinimg.com/736x/47/55/2c/47552cff6c11d9fb901a904c48b823ee.jpg"
+                            class="img-thumbnail
+                            alt="..." style="widows: 100px; height:250px">
+                        <div class="card-body">
+                            <h5 class="card-title">Jumlah Barang</h5>
+                            <p class="card-text">
+                                Teknik Otomotif : <br>
+                                {{ $jumlahTo }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-4">
+                    <div class="card" style="width: 18rem; mx-10;">
+                        <img src="https://img.freepik.com/premium-vector/minimal-multimedia-logo-template_416562-755.jpg?w=740"
+                            class="img-thumbnail
+                            alt="..." style="widows: 100px; height:250px">
+                        <div class="card-body">
+                            <h5 class="card-title">Jumlah Barang</h5>
+                            <p class="card-text">
+                                Multimedia : <br>
+                                {{ $jumlahMm }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-12 d-flex align-items-stretch">
                 <div class="card w-100">
                     <div class="card-body p-4">
@@ -12,6 +55,7 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Kategori</th>
+                                        <th>Kode</th>
                                         <th>Nama Barag</th>
                                         <th>Jumlah</th>
                                         <th>Kondisi baik</th>
@@ -22,7 +66,8 @@
                                     @foreach ($barang as $brg)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $brg->kategori->nama }}</td>
+                                            <td>{{ $brg->kategori->nama ?? 'None' }}</td>
+                                            <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td>{{ $brg->jumlah_brg }}</td>
                                             <td>{{ $brg->kondisi->baik }}</td>

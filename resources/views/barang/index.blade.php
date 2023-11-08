@@ -63,7 +63,7 @@
                                     @foreach ($barang as $brg)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $brg->kategori->nama }}</td>
+                                            <td>{{ $brg->kategori->nama ?? 'None' }}</td>
                                             <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td class="text-center">{{ $brg->jumlah_brg }}</td>

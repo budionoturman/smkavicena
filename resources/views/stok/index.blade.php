@@ -28,7 +28,7 @@
                                 <tbody>
                                     @foreach ($barang as $brg)
                                         <tr>
-                                            <td>{{ $brg->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $brg->kategori->nama }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td class="text-center">{{ $brg->jumlah_brg }}</td>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SMK Avicena</title>
+    <title>SMK Avicena | Inventaris Barang</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('admin-ui') }}/src/assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="{{ asset('admin-ui') }}/src/assets/css/styles.min.css" />
     <script src="https://kit.fontawesome.com/41517c21c4.js" crossorigin="anonymous"></script>
@@ -26,8 +26,9 @@
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./index.html" class="text-nowrap logo-img">
-                        <img src="{{ asset('admin-ui') }}/src/assets/images/logos/dark-logo.svg" width="180"
-                            alt="" />
+                        <img src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.30808-6/306076038_441484661303784_4295399132948282674_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rElEVfwV964AX8eRvF-&_nc_ht=scontent-xsp1-2.xx&oh=00_AfDLMka7C5G0OAjwVdE7KmoLD0Bl6mk0TpEtSk2rAOMKkQ&oe=6542369E"
+                            width="50" height="50" alt="" />
+                        <span class="text-secondary">SMK Avicena</span>
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -51,7 +52,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="/barang" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-article"></i>
+                                    <i class="fa-solid fa-computer"></i>
                                 </span>
                                 <span class="hide-menu">Barang</span>
                             </a>
@@ -67,7 +68,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="/kategori" aria-expanded="false">
                                 <span>
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="ti ti-article"></i>
                                 </span>
                                 <span class="hide-menu">Kategori</span>
                             </a>
@@ -87,7 +88,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="/pengembalian" aria-expanded="false">
                                 <span>
-                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                    <i class="fa-solid fa-right-left"></i>
                                 </span>
                                 <span class="hide-menu">Pengembalian</span>
                             </a>
@@ -274,8 +275,8 @@
                         return {
                             results: $.map(data, function(item) {
                                 return {
-                                    text: item.kode_brg,
-                                    id: item.id
+                                    text: item.nama_brg,
+                                    id: item.id,
                                 }
                             })
                         };

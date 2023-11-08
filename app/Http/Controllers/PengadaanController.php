@@ -7,6 +7,9 @@ use App\Http\Requests\StorePengadaanRequest;
 use App\Http\Requests\UpdatePengadaanRequest;
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 
 class PengadaanController extends Controller
 {
@@ -87,8 +90,42 @@ class PengadaanController extends Controller
         //
     }
 
-    public function pdf($id)
+    public function pdf()
     {
-        return view('pdf/pdf');
+        //nomor surat       
+        $tahun = Carbon::now('Y');
+        $AWAL = 'PGB';
+        $bulanRomawi = array("", "I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII");
+        $noUrutAkhir = Pengadaan::max('id');
+        $no = "0".$noUrutAkhir + 1;
+        $no_surat = $no . '/' . $AWAL . '/' . $bulanRomawi[date('n')] . '/' . $tahun->year;
+
+        //data barang yang sudah disetujui
+        $data =  Pengadaan::has('barang')->where('status', 'disetujui')->get();
+        
+        return view('pdf/pdf',[
+            'no_surat' => $no_surat,   //nomor surat
+            'data' => $data,  //isi surat
+        ]);
+    }
+
+    public function cetakPdf()
+    {
+         //nomor surat       
+         $tahun = Carbon::now('Y');
+         $AWAL = 'PGB';
+         $bulanRomawi = array("", "I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII");
+         $noUrutAkhir = Pengadaan::max('id');
+         $no = "0".$noUrutAkhir + 1;
+         $no_surat = $no . '/' . $AWAL . '/' . $bulanRomawi[date('n')] . '/' . $tahun->year;
+ 
+         //data barang yang sudah disetujui
+        $data =  Pengadaan::has('barang')->where('status', 'disetujui')->get();
+
+        $pdf = PDF::loadView('pdf/cetak', [
+            'no_surat' => $no_surat,   //nomor surat
+            'data' => $data,  //isi surat
+        ]);
+        return $pdf->stream('pengadaan.pdf');
     }
 }

@@ -1,4 +1,12 @@
-@extends('layout/layout')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pengadaan Barang</title>
+</head>
 <style>
     @page {
         size: A4
@@ -30,23 +38,16 @@
         text-align: center;
     }
 </style>
-@section('container')
+
+<body>
+
     <div class="container-fluid">
-        <div class="row mb-3">
-            <div class="col">
-                <a href="/pdf/cetak">
-                    <button type="button" class="btn btn-outline-warning m-1">cetak
-                    </button>
-                </a>
-            </div>
-        </div>
         <div class="row">
             <section class="sheet padding-10mm">
                 {{-- <h3>Surat Keretangan </h3> --}}
                 <p>No : {{ $no_surat }}</p>
                 <p>Perihal : Surat pengadaan</p>
                 <p>Tanggal : {{ date('d M Y ') }}</p>
-                <br>
                 <br>
                 <br>
                 <p>Dengan hormat,<br>
@@ -56,7 +57,7 @@
                     Jabatan : Kepala SMK Avicena Rajeg</p>
 
                 <p>Bermaksud untuk mengajukan permohonan pengadaan barang dengan rincian sebagai berikut:</p>
-                <table class="table" border="0">
+                <table class="table" border="1">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -72,7 +73,6 @@
                                 <td>{{ $data->jumlah }}</td>
                             </tr>
                         @endforeach
-                        <tr>
                     </tbody>
                 </table>
                 <p>Demikian kami sampaikan, atas perhatian dan kerjasamanya diucapkan terima kasih.</p>
@@ -104,5 +104,7 @@
             </section>
         </div>
     </div>
-    </div>
-@endsection
+
+</body>
+
+</html>
