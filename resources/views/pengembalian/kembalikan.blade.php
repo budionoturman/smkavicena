@@ -9,21 +9,44 @@
                         <div class="card-body">
                             <form action="/storekembali" method="post">
                                 @csrf
-                                <input type="hidden" class="form-control" name="id" id="id" value="<?php echo (isset($data->id)?$data->id:""); ?>" readonly>
-                            <div class="mb-3">
-                                <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
-                                <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm" value="<?php echo (isset($data->tgl_pjm)?$data->tgl_pjm:""); ?>" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tgl_pjm" class="form-label">Tanggal Kembali</label>
-                                <input type="date" class="form-control" name="tgl_kmb" id="tgl_kmb">
-                            </div>
-                            <div class="mb-3">
-                                <label for="no_hp" class="form-label">Denda</label>
-                                <input type="number" class="form-control" name="denda" id="denda">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                                <div class="form-group mb-3">
+                                    <label for="nama_brg" class="form-label">Nama Barang</label>
+                                    <input type="text" class="form-control" name="nama_brg" id="nama_brg">
+                                </div>
+                                <div class="form-group mb-3">
+                                    Kondisi
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Baik</label>
+                                    <input type="" class="form-control" name="" id="">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Rusak</label>
+                                    <input type="" class="form-control" name="" id="">
+                                </div>
+
+                                <input type="hidden" class="form-control" name="id" id="id"
+                                    value="<?php echo isset($data->id) ? $data->id : ''; ?>" readonly>
+                                <div class="mb-3">
+                                    <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
+                                    <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm"
+                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
+                                    <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm"
+                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tgl_pjm" class="form-label">Tanggal Kembali</label>
+                                    <input type="date" class="form-control" name="tgl_kmb" id="tgl_kmb">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="no_hp" class="form-label">Denda</label>
+                                    <input type="number" class="form-control" name="denda" id="denda">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
