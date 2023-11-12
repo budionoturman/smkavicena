@@ -19,7 +19,7 @@
                             @endcan
                         </div>
                         <div class="table-responsive">
-                            <table class="table text-nowrap mb-0 align-middle">
+                            <table class="table text-nowrap mb-0 align-middle" id="dataTable">
                                 <thead class="text-dark fs-4">
                                     <tr class="align-items-center">
                                         <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">

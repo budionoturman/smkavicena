@@ -35,13 +35,13 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label">Kondisi:</label>
                                     <br>
-                                    <label for="baik">Baik</label>
-                                    <input type="number" class="form-control" id="baik" name="baik"
-                                        value=" {{ $barang->kondisi->baik }}">
+                                    <label for="jumlah_baik">Baik</label>
+                                    <input type="text" class="form-control" id="jumlah_baik" name="jumlah_baik"
+                                        value=" {{ $barang->jumlah_baik }}">
                                     <br>
-                                    <label for="rusak">Rusak</label>
-                                    <input type="number" class="form-control" id="rusak" name="rusak"
-                                        value="{{ $barang->kondisi->rusak }} ">
+                                    <label for="jumlah_rusak">Rusak</label>
+                                    <input type="text" class="form-control" id="jumlah_rusak" name="jumlah_rusak"
+                                        value="{{ $barang->jumlah_rusak }} ">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

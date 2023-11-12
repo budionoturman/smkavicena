@@ -134,17 +134,19 @@ class BarangController extends Controller
         $validatedData1=$request->validate([
             'kategori_id'=>'required',
             'nama_brg'=>'required',
-            'jumlah_brg'=>'required'
+            'jumlah_brg'=>'required',            
+            'jumlah_baik'=>'required',            
+            'jumlah_rusak'=>'required',            
         ]); 
 
-        $validatedData2=$request->validate([
-            'baik' => 'required',
-            'rusak' => 'required'
-        ]);
-        $validatedData2['barang_id']=$barang->id;
+        // $validatedData2=$request->validate([
+        //     'baik' => 'required',
+        //     'rusak' => 'required'
+        // ]);
+        // $validatedData2['barang_id']=$barang->id;
 
         Barang::where('id', $barang->id)->update($validatedData1);
-        Kondisi::where('barang_id', $barang->id)->update($validatedData2);
+        // Kondisi::where('barang_id', $barang->id)->update($validatedData2);
         return redirect('/barang');
     }
 

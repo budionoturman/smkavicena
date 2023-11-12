@@ -57,7 +57,7 @@
                                         <th>Kategori</th>
                                         <th>Kode</th>
                                         <th>Nama Barag</th>
-                                        <th>Jumlah</th>
+                                        <th>Stok</th>
                                         <th>Kondisi baik</th>
                                         <th>Kondisi rusak </th>
                                     </tr>
