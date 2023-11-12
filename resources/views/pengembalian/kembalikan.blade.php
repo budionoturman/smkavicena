@@ -32,8 +32,12 @@
 
                                     <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm"
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         value="{{ $tgl_pjm }}" readonly>
 
+=======
+                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
+>>>>>>> 02234d5aa0b9e52dcda1757903da2a1468126062
 =======
                                         value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
 >>>>>>> 02234d5aa0b9e52dcda1757903da2a1468126062
