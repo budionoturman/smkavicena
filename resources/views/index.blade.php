@@ -57,15 +57,15 @@
                                         <th>Kategori</th>
                                         <th>Kode</th>
                                         <th>Nama Barag</th>
-<<<<<<< HEAD
+
                                         <th>Jumlah</th>
                                         <th>baik</th>
                                         <th>rusak </th>
-=======
+                                        =======
                                         <th>Stok</th>
                                         <th>Kondisi baik</th>
                                         <th>Kondisi rusak </th>
->>>>>>> 3ae5a1ef3439c45b4f5a20bf75cdca876d479cc6
+                                        >>>>>>> 3ae5a1ef3439c45b4f5a20bf75cdca876d479cc6
                                     </tr>
                                 </thead>
                                 <tbody>
