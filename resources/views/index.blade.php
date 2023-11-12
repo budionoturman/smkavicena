@@ -49,7 +49,7 @@
                 <div class="card w-100">
                     <div class="card-body p-4">
                         <h5 class="card-title fw-semibold mb-4">Data Barang Inventaris</h5>
-                        <div class="table-responsive">
+                        {{-- <div class="table-responsive">
                             <table class="table text-nowrap mb-0 align-middle" id="dataTable">
                                 <thead>
                                     <tr>
@@ -57,15 +57,12 @@
                                         <th>Kategori</th>
                                         <th>Kode</th>
                                         <th>Nama Barag</th>
-<<<<<<< HEAD
                                         <th>Jumlah</th>
                                         <th>baik</th>
                                         <th>rusak </th>
-=======
                                         <th>Stok</th>
                                         <th>Kondisi baik</th>
                                         <th>Kondisi rusak </th>
->>>>>>> 3ae5a1ef3439c45b4f5a20bf75cdca876d479cc6
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,6 +75,52 @@
                                             <td>{{ $brg->jumlah_brg }}</td>
                                             <td>{{ $brg->jumlah_baik }}</td>
                                             <td>{{ $brg->jumlah_rusak }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div> --}}
+                        <div class="table-responsive">
+                            <table class="table text-nowrap mb-0 align-middle" id="dataTable">
+                                <thead class="text-dark fs-4">
+                                    <tr class="align-items-center">
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">No.</h6>
+                                        </th>
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Kategori</h6>
+                                        </th>
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Kode</h6>
+                                        </th>
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Nama Barang</h6>
+                                        </th>
+                                        <th class="border-bottom-0" rowspan="2" style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Jumlah</h6>
+                                        </th>
+                                        <th class="border-bottom-0 text-center" colspan="2"
+                                            style="vertical-align: middle">
+                                            <h6 class="fw-semibold mb-0">Kondisi</h6>
+                                        </th>
+                                    </tr>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Baik</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Rusak</h6>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($barang as $brg)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $brg->kategori->nama ?? 'None' }}</td>
+                                            <td>{{ $brg->kode_brg }}</td>
+                                            <td>{{ $brg->nama_brg }}</td>
+                                            <td class="text-center">{{ $brg->jumlah_brg }}</td>
+                                            <td class="text-center">{{ $brg->jumlah_baik }}</td>
+                                            <td class="text-center">{{ $brg->jumlah_rusak }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -95,7 +138,7 @@
                     <div class="card-body p-4">
                         <h5 class="card-title fw-semibold mb-4">Data Peminjam Barang Inventaris</h5>
                         <div class="table-responsive">
-                            <table class="table text-nowrap mb-0 align-middle" border="2" id="dataTable">
+                            <table class="table text-nowrap mb-0 align-middle" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th class="border-bottom-0">
