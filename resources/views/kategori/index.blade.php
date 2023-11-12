@@ -19,7 +19,7 @@
                             @endcan
                         </div>
                         <div class="table-responsive">
-                            <table class="table text-nowrap mb-0 align-middle" border="2" id="dataTable">
+                            <table class="table text-nowrap mb-0 align-middle" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>No.</th>

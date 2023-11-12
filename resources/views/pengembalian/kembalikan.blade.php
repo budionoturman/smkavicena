@@ -33,11 +33,6 @@
                                         value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
-                                    <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm"
-                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
-                                </div>
-                                <div class="mb-3">
                                     <label for="tgl_pjm" class="form-label">Tanggal Kembali</label>
                                     <input type="date" class="form-control" name="tgl_kmb" id="tgl_kmb">
                                 </div>

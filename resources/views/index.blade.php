@@ -50,7 +50,7 @@
                     <div class="card-body p-4">
                         <h5 class="card-title fw-semibold mb-4">Data Barang Inventaris</h5>
                         <div class="table-responsive">
-                            <table class="table text-nowrap mb-0 align-middle" border="2" id="dataTable">
+                            <table class="table text-nowrap mb-0 align-middle" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -58,8 +58,8 @@
                                         <th>Kode</th>
                                         <th>Nama Barag</th>
                                         <th>Jumlah</th>
-                                        <th>Kondisi baik</th>
-                                        <th>Kondisi rusak </th>
+                                        <th>baik</th>
+                                        <th>rusak </th>
                                     </tr>
                                 </thead>
                                 <tbody>
