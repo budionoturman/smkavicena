@@ -9,20 +9,49 @@
                         <div class="card-body">
                             <form action="/storekembali" method="post">
                                 @csrf
+                                {{-- id peminjam --}}
+                                <input type="hidden" name="peminjam_id" value="{{ $data->id }}">
                                 <div class="form-group mb-3">
-                                    <label for="nama_brg" class="form-label">Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_brg" id="nama_brg">
-                                </div>
-                                <div class="form-group mb-3">
-                                    Kondisi
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label">Baik</label>
-                                    <input type="" class="form-control" name="" id="">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="form-label">Rusak</label>
-                                    <input type="" class="form-control" name="" id="">
+                                    @foreach ($data->barang as $data)
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <label for="nama_brg" class="form-label">Nama Barang</label>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="jumlah" class="form-label">jumlah Barang
+                                                            Dipinjam</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col mb-3">
+                                                        <input type="text" class="form-control" name="nama_brg[]"
+                                                            id="nama_brg[]" value="{{ $data->nama_brg }}" readonly>
+                                                        <input type="hidden" class="form-control" name="barang_id[]"
+                                                            id="barang_id[]" value="{{ $data->id }}" readonly>
+                                                    </div>
+                                                    <div class="col mb-3">
+                                                        <input type="text" class="form-control" name=""
+                                                            id="" value="{{ $data->pivot->jumlah }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    Kondisi
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label">Baik</label>
+                                                    <input type="" class="form-control" name="jumlah_baik[]"
+                                                        id="jumlah_baik[]" value="">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label">Rusak</label>
+                                                    <input type="" class="form-control" name="jumlah_rusak[]"
+                                                        id="jumlah_rusak[]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
 
                                 <input type="hidden" class="form-control" name="id" id="id"
@@ -31,16 +60,8 @@
                                     <label for="tgl_pjm" class="form-label">Tanggal Pinjam</label>
 
                                     <input type="date" class="form-control" name="tgl_pjm" id="tgl_pjm"
-<<<<<<< HEAD
-<<<<<<< HEAD
                                         value="{{ $tgl_pjm }}" readonly>
 
-=======
-                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
->>>>>>> 02234d5aa0b9e52dcda1757903da2a1468126062
-=======
-                                        value="<?php echo isset($data->tgl_pjm) ? $data->tgl_pjm : ''; ?>" readonly>
->>>>>>> 02234d5aa0b9e52dcda1757903da2a1468126062
                                 </div>
                                 <div class="mb-3">
                                     <label for="tgl_pjm" class="form-label">Tanggal Kembali</label>
