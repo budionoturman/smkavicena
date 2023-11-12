@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Peminjam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PengembalianController extends Controller
 {
@@ -74,13 +75,29 @@ class PengembalianController extends Controller
 
     public function storekembali(Request $request){
          //$transaksidata = Transaksi::query()->get()->find($id);
-         $peminjam = Peminjam::findOrFail($request->id);
+         
+          //update stok
+         for($i = 0;$i<=count($request->barang_id)-1;$i++)
+            {
+                $brg = Barang::find($request->barang_id[$i])->get();
+                $jumlah_baik = $brg[$i]->jumlah_baik+$request->jumlah_baik[$i];
+                $jumlah_rusak = $brg[$i]->jumlah_rusak+$request->jumlah_rusak[$i];
+              
+
+                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_baik' => $jumlah_baik]);
+                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_rusak' => $jumlah_rusak]);
+             }
+        
+
+         $peminjam = Peminjam::findOrFail($request->peminjam_id);
 
          $peminjam->tgl_kmb = $request->tgl_kmb;
          $peminjam->denda = $request->denda;
          $peminjam->status = "sudah kembali";
          
          $peminjam->save();
+
+        
  
 
          return redirect('/pengembalian');
@@ -106,6 +123,10 @@ class PengembalianController extends Controller
 
          //var_dump(['data' => $peminjam->tgl_pjm]);
          //exit();
-         return view('pengembalian.kembalikan',['data' => $peminjam]);
+         $tgl_pjm = $peminjam->tgl_pjm;
+         return view('pengembalian.kembalikan',[
+            'data' => $peminjam,
+            'tgl_pjm' => $tgl_pjm
+        ]);
      }
 }

@@ -22,7 +22,8 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang" name="barang_id[]" class="form-control selectbarang"
+                                        style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -31,7 +32,8 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang1" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang1" name="barang_id[]" class="form-control selectbarang"
+                                        style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -40,43 +42,44 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">Barang</label>
-                                    <select id="barang2" name="barang_id[]" class="form-control selectbarang" style="width: 100%;">
+                                    <select id="barang2" name="barang_id[]" class="form-control selectbarang"
+                                        style="width: 100%;">
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jumlah" class="form-label">Jumlah</label>
                                     <input type="text" class="form-control" name="jumlah[]" id="jumlah">
                                 </div>
-                               <!-- <div class="mb-3">
-                                    <label for="barang_id" class="form-label">Barang</label>
-                                    <input type="text" name="search" id="search" class="form-control form-control-lg"
-                                        placeholder="Type Here..." />
-                                    {{-- <input type="text" class="form-control" name="barang" id="barang"> --}}
-                                    {{-- <select name="barang_id" id="barang_id" class="form-select">
+                                <!-- <div class="mb-3">
+                                        <label for="barang_id" class="form-label">Barang</label>
+                                        <input type="text" name="search" id="search" class="form-control form-control-lg"
+                                            placeholder="Type Here..." />
+                                        {{-- <input type="text" class="form-control" name="barang" id="barang"> --}}
+                                        {{-- <select name="barang_id" id="barang_id" class="form-select">
                                         @foreach ($barang as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_brg }}</option>
                                         @endforeach
                                     </select> --}}
-                                </div>-->
-                              
+                                    </div>-->
+
                                 <div class="mb-3">
                                     <label for="no_hp" class="form-label">No. Hp</label>
                                     <input type="number" class="form-control" name="no_hp" id="no_hp">
                                 </div>
                                 <div class="mb-3">
-                                
-                               
 
-                                {{-- <div class="mb-3">
+
+
+                                    {{-- <div class="mb-3">
                     <label for="tgl_kmb" class="form-label">Tanggal Kembali</label>
                     <input type="date" class="form-control" name="tgl_kmb" id="tgl_kmb">
                 </div> --}}
-                                <div class="mb-3">
-                                   
-                                    <input type="hidden" class="form-control" name="status" id="status"
-                                        value="proses">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="mb-3">
+
+                                        <input type="hidden" class="form-control" name="status" id="status"
+                                            value="proses">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>

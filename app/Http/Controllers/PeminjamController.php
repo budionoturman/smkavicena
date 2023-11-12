@@ -87,10 +87,10 @@ class PeminjamController extends Controller
             for($i = 0;$i<=count($request->barang_id)-1;$i++)
             {
                 $brg = Barang::find($request->barang_id[$i])->get();
-                $jmlh = $brg[0]->jumlah_brg-$request->jumlah[$i];
+                $jmlh = $brg[$i]->jumlah_brg-$request->jumlah[$i];
               
 
-                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_brg' => $jmlh]);
+                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_baik' => $jmlh]);
                 //$post->save()
                 Detail_barang::create([ 
                     'peminjam_id' => $peminjam->id,
