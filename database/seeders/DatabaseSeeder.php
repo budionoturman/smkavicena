@@ -56,13 +56,16 @@ class DatabaseSeeder extends Seeder
 
         
         Jurusan::create([
-            'nama'=> 'Teknik Komputer & Jaringan'
+            'nama'=> 'Teknik Komputer & Jaringan',
+            'kode_jurusan' => 'TKJ'
         ]);
         Jurusan::create([
-            'nama'=> 'Teknik Otomotif'
+            'nama'=> 'Teknik Otomotif',
+            'kode_jurusan' => 'TO'
         ]); 
         Jurusan::create([
-            'nama'=> 'Multimedia'
+            'nama'=> 'Multimedia',
+            'kode_jurusan' => 'MM'
         ]);
 
         // Barang::create([

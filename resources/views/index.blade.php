@@ -70,8 +70,8 @@
                                             <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td>{{ $brg->jumlah_brg }}</td>
-                                            <td>{{ $brg->kondisi->baik }}</td>
-                                            <td>{{ $brg->kondisi->rusak }}</td>
+                                            <td>{{ $brg->jumlah_baik }}</td>
+                                            <td>{{ $brg->jumlah_rusak }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -31,9 +31,9 @@
                                     <input type="text" class="form-control" name="nama_brg" id="nama_brg">
                                 </div>
                                 <!--<div class="mb-3">
-                                        <label for="kode_brg" class="form-label">Kode Barang</label>
-                                        <input type="text" class="form-control" name="kode_brg" id="kode_brg">
-                                    </div>-->
+                                                <label for="kode_brg" class="form-label">Kode Barang</label>
+                                                <input type="text" class="form-control" name="kode_brg" id="kode_brg">
+                                            </div>-->
                                 <div class="mb-3">
                                     <label for="jumlah_brg" class="form-label">Jumlah</label>
                                     <input type="number" class="form-control" name="jumlah_brg" id="jumlah_brg">
@@ -41,9 +41,11 @@
                                 <div class="mb-3">
                                     <label for="kondisi_brg" class="form-label">Kondisi:</label>
                                     <br>
-                                    <label for="baik">Baik</label>
-                                    <input type="number" class="form-control" id="baik" name="baik" value="">
-                                    <input type="hidden" class="form-control" id="rusak" name="rusak" value="0">
+                                    <label for="jumlah_baik">Baik</label>
+                                    <input type="number" class="form-control" id="jumlah_baik" name="jumlah_baik"
+                                        value="">
+                                    <input type="hidden" class="form-control" id="jumlah_rusak" name="jumlah_rusak"
+                                        value="0">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

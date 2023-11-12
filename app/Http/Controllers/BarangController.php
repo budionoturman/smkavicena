@@ -85,21 +85,25 @@ class BarangController extends Controller
         //dd('test');
         // $validatedata1['kode_brg'] = $id;
         
-        $validatedata2= $request->validate([
-            'baik'=> 'required',
-            'rusak'=> 'required'
-        ]);
-        $barang =Barang::create([
-            'jurusan_id' => $request->jurusan_id,
-            'kategori_id' => $request->kategori_id,
-            'nama_brg' => $request->nama_brg,
+        // $validatedata2= $request->validate([
+        //     'baik'=> 'required',
+        //     'rusak'=> 'required'
+        // ]);
+        Barang::create([
             'kode_brg' => $kodebrgfix ,
+            'kategori_id' => $request->kategori_id,
+            'jurusan_id' => $request->jurusan_id,
+            'nama_brg' => $request->nama_brg,
             'jumlah_brg' =>  $request->jumlah_brg,
+            'jumlah_baik' => $request->jumlah_baik,
+            'jumlah_rusak' => $request->jumlah_rusak
         ]);
+
+       
         // $barang = Barang::create($validatedata1);
-        $kondisi= new Kondisi($validatedata2);
-        $barang->save();
-        $barang->kondisi()->save($kondisi);
+        // $kondisi= new Kondisi($validatedata2);
+        // $barang->save();
+        // $barang->kondisi()->save($kondisi);
         return redirect('/barang');
     }
 

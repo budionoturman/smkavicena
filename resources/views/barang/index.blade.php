@@ -67,8 +67,8 @@
                                             <td>{{ $brg->kode_brg }}</td>
                                             <td>{{ $brg->nama_brg }}</td>
                                             <td class="text-center">{{ $brg->jumlah_brg }}</td>
-                                            <td class="text-center">{{ $brg->kondisi->baik }}</td>
-                                            <td class="text-center">{{ $brg->kondisi->rusak }}</td>
+                                            <td class="text-center">{{ $brg->jumlah_baik }}</td>
+                                            <td class="text-center">{{ $brg->jumlah_rusak }}</td>
                                             @can('isAdmin')
                                                 <td class="text-center d-flex inline justify-content-center">
                                                     <a href="/barang/{{ $brg->id }}/edit">
