@@ -30,8 +30,22 @@
             </div> --}}
                                 <div class="mb-3">
                                     <label for="status" class="form-label">Status</label>
-                                    <input type="hidden" class="form-control" name="status" id="status"
-                                        value="disetujui">
+                                    {{-- <input type="hidden" class="form-control" name="status" id="status"
+                                        value="disetujui"> --}}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="disetujui" id="status"
+                                            name="status" checked>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Disetujui
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="tidak disetujui"
+                                            id="status" name="status">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Tidak Disetujui
+                                        </label>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Setujui</button>
                             </form>

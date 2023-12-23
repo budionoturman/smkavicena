@@ -38,7 +38,7 @@ class KategoriController extends Controller
             'nama' => 'required',
         ]);
         Kategori::create($validatedData);
-        return redirect('/kategori');
+        return redirect('/kategori')->with("success", "Tambah Kategori Berhasil");
     }
 
     /**

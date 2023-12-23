@@ -41,8 +41,10 @@
                                             <td>
                                                 @if ($pengadaan->status === 'pengajuan')
                                                     <button class="btn btn-warning m-1">{{ $pengadaan->status }}</button>
-                                                @else
+                                                @elseif($pengadaan->status === 'disetujui')
                                                     <button class="btn btn-success m-1">{{ $pengadaan->status }}</button>
+                                                @else
+                                                    <button class="btn btn-danger m-1">{{ $pengadaan->status }}</button>
                                                 @endif
                                             </td>
 

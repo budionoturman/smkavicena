@@ -31,9 +31,9 @@
                                     <input type="text" class="form-control" name="nama_brg" id="nama_brg">
                                 </div>
                                 <!--<div class="mb-3">
-                                                <label for="kode_brg" class="form-label">Kode Barang</label>
-                                                <input type="text" class="form-control" name="kode_brg" id="kode_brg">
-                                            </div>-->
+                                                    <label for="kode_brg" class="form-label">Kode Barang</label>
+                                                    <input type="text" class="form-control" name="kode_brg" id="kode_brg">
+                                                </div>-->
                                 <div class="mb-3">
                                     <label for="jumlah_brg" class="form-label">Jumlah</label>
                                     <input type="number" class="form-control" name="jumlah_brg" id="jumlah_brg">
@@ -54,4 +54,10 @@
                 </div>
             </div>
         </div>
+        <script>
+            let jumlah_brg = document.getElementById("jumlah_brg").value;
+            let jumlah = jumlah_brg;
+
+            let jumlah_baik = document.getElementById('jumlah_baik').value = jumlah;
+        </script>
     @endsection

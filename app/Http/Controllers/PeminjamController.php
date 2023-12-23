@@ -84,13 +84,13 @@ class PeminjamController extends Controller
                 'total' => array_sum($request->jumlah)
                 //'total' => 'required'
             ]);
-            for($i = 0;$i<=count($request->barang_id)-1;$i++)
+            for($i = 0; $i<=count($request->barang_id)-1; $i++)
             {
                 $brg = Barang::find($request->barang_id[$i])->get();
-                $jmlh = $brg[$i]->jumlah_baik-$request->jumlah[$i];
+                $jmlh = $brg[$i]->jumlah_baik - $request->jumlah[$i];
               
 
-                DB::table('barangs')->where('id', $request->barang_id[$i])->update(['jumlah_baik' => $jmlh]);
+                Barang::where('id', $request->barang_id[$i])->update(['jumlah_baik' => $jmlh]);
                 //$post->save()
                 Detail_barang::create([ 
                     'peminjam_id' => $peminjam->id,

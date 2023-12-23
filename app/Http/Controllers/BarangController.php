@@ -104,7 +104,7 @@ class BarangController extends Controller
         // $kondisi= new Kondisi($validatedata2);
         // $barang->save();
         // $barang->kondisi()->save($kondisi);
-        return redirect('/barang');
+        return redirect('/barang')->with("success", "Tambah Barang Berhasil");
     }
 
     /**
